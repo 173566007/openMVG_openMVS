@@ -1,5 +1,5 @@
 
-openMvg安装：(vcpkg)
+openMVG安装：
 1.安装所需的外部库。
 $ sudo apt-get install libpng-dev libjpeg-dev libtiff-dev libxxf86vm1 libxxf86vm-dev libxi-dev libxrandr-dev
 如果您想查看视图图 svg 日志，请安装 Graphviz。
