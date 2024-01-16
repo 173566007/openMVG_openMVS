@@ -40,65 +40,107 @@ cd eigen-3.4.0
 mkdir build
 
 cd build
+
 cmake ..
+
 sudo make
+
 sudo make install
+
 2.OPENCV 跨平台计算机视觉库
+
 sudo apt install libopencv-dev
 
 3.CGAL 计算几何算法库(CGAL)是一个高效可靠的C++几何算法库
+
 sudo apt-get install libcgal-dev
 
 4.安装boots C++程序库
+
 sudo apt-get install libboost-dev
+
 或
+
 下载最新tar.gz
+
 tar -zxvf boost_1_84_0.tar.gz 
+
 cd boost_1_84_0/
+
 sudo ./bootstrap.sh --with-libraries=all --with-toolset=gcc
+
 sudo ./b2 toolset=gcc
+
 sudo ./b2 install
+
 sudo ldconfig    
 
 
 5.vcglib 2020年的版本
+
 git clone https://github.com/cdcseacave/VCG.git vcglib
 
 11 glog 手动安装
+
 git clone https://github.com/google/glog.git
+
 cd glog
+
 git checkout v0.4.0
+
 mkdir build && cd build
+
 cmake ..
+
 make -j4
+
 make install
 
 
 6.ceres 用于建模和解决大型复杂的优化问题
+
 依赖
+
 # CMake
+
 sudo apt-get install cmake
+
 # gflags
+
 sudo apt-get install libgflags-dev
+
 # Use ATLAS for BLAS & LAPACK
+
 sudo apt-get install libatlas-base-dev
+
 # Eigen3
+
 参照上边
+
 # SuiteSparse (optional)
+
 sudo apt-get install libsuitesparse-dev
+
 安装
+
 git clone https://github.com/ceres-solver/ceres-solver.git
 
 mkdir ceres-bin
+
 cd ceres-bin
+
 cmake ../ceres-solver
 
  ###ln -s /usr/include/eigen3/Eigen /usr/include/Eigen
+
 make -j3
+
 make test
+
 # Optionally install Ceres, it can also be exported using CMake which
 # allows Ceres to be used without requiring installation, see the documentation
 # for the EXPORT_BUILD_DIR option for more information.
+
 make install
 
 
@@ -106,10 +148,12 @@ make install
 
 
 7#GLFW3 (Optional)
+
 apt-get -y install freeglut3-dev libglew-dev libglfw3-dev
 
 
 8 colmap
+
 sudo apt-get install \
     git \
     cmake \
@@ -131,26 +175,41 @@ sudo apt-get install \
 
 
 git clone https://github.com/colmap/colmap.git
+
 cd colmap
+
 mkdir build
+
 cd build
 
 cmake .. -GNinja -DCMAKE_CUDA_ARCHITECTURES=all                                                                                                                                                      
+
 ninja
+
 sudo ninja install
 
 9安装openMvs
+
 #Clone OpenMVS 需要切换到develop分支
+
 git clone --recurse-submodules https://github.com/cdcseacave/openMVS.git
+
 #Make build directory:
+
 mkdir openMVS_build
+
 cd openMVS_build
 
 #Run CMake:个
+
 cmake . ../openMVS -DCMAKE_BUILD_TYPE=Release -DVCG_ROOT="/home/vcglib"
+
 #build install:
+
 注释掉 libs/Common/Types.inl 中 zstd 相关的代码。
+
 #include <boost/iostreams/filter/zstd.hpp>
+
 make -j2 && make install
 
 //报错ZSTD相关 ，需要注释掉Types.inl中相关代码
