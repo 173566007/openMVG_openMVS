@@ -1,18 +1,31 @@
 
 openMVG安装：
+
 1.安装所需的外部库。
+
 $ sudo apt-get install libpng-dev libjpeg-dev libtiff-dev libxxf86vm1 libxxf86vm-dev libxi-dev libxrandr-dev
+
 如果您想查看视图图 svg 日志，请安装 Graphviz。
+
 $ sudo apt-get install graphviz
+
 2.查看 OpenMVG。
+
 $ git clone --recursive https://github.com/openMVG/openMVG.git
+
 $ mkdir openMVG_Build && cd openMVG_Build
+
 3.配置和构建
 $ cmake -DCMAKE_BUILD_TYPE=RELEASE ../openMVG/src/   -DOpenMVG_BUILD_TESTS=ON
+
 $ cmake --build . --target install
+
 使用 make 或 ctest 运行测试（如果在 CMake 命令行中使用 请求-DOpenMVG_BUILD_TESTS=ON）
+
 $ make test
+
 $ ctest --output-on-failure -j
+
 
 
 openMvs安装:
@@ -20,9 +33,12 @@ openMvs安装:
 1.eigen 线性算术的C++模板库
 
 需要装4.0
-       tar -xzvf eigen-3.4.0 .tar.gz
+tar -xzvf eigen-3.4.0 .tar.gz
+
 cd eigen-3.4.0
+
 mkdir build
+
 cd build
 cmake ..
 sudo make
